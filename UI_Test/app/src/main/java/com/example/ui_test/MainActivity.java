@@ -2,7 +2,11 @@ package com.example.ui_test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.EditorBoundsInfo;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,4 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
+
+    public void sendString(View view){
+        EditText edtName=(EditText) findViewById(R.id.edtName);
+        String string2Send=edtName.getText().toString();
+
+        Intent intent=new Intent(this,DisplayStringActivity.class);
+        intent.putExtra("UserName",string2Send);
+        startActivity(intent);
+    }
 }
+
